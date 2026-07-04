@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="it" class="h-full bg-[#f8f7ff] text-slate-900 selection:bg-[#fb923c] selection:text-black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrologia Emotiva - Scopri la tua mappa interiore</title>
+    
+    <!-- SICUREZZA DI BASE: Direttive di sicurezza per referrer -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pure: {
+                            purple: '#d8b4fe', // viola chiaro
+                            blue: '#93c5fd',   // blu chiaro
+                            orange: '#fdba74', // arancione chiaro
+                            dark: '#1e1b4b',
+                            accent: '#111827'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Space Grotesk per stile audace/futuristico tipo Pure; La Belle Aurore e Playfair Display per il corsivo Matthew -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=La+Belle+Aurore&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            background-color: #f5f3ff;
+        }
+        
+        /* Brutalist solid shadows (Pure About-Us Style) */
+        .brutal-shadow-orange {
+            box-shadow: 6px 6px 0px 0px #1e1b4b;
+        }
+        .brutal-shadow-purple {
+            box-shadow: 6px 6px 0px 0px #1e1b4b;
+        }
+        .brutal-shadow-blue {
+            box-shadow: 6px 6px 0px 0px #1e1b4b;
+        }
+        .brutal-shadow-btn {
+            box-shadow: 4px 4px 0px 0px #1e1b4b;
+            transition: all 0.15s ease-in-out;
+        }
+        .brutal-shadow-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 1px 1px 0px 0px #1e1b4b;
+        }
+        
+        /* Animazioni Pop Custom per dare dinamismo */
+        @keyframes gentle-wobble {
+            0%, 100% { transform: rotate(-3deg) translateY(0); }
+            50% { transform: rotate(3deg) translateY(-8px); }
+        }
+        @keyframes slow-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        @keyframes slow-float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(12px) rotate(-2deg); }
+        }
+        
+        .sticker-wobble {
+            animation: gentle-wobble 5s ease-in-out infinite;
+        }
+        .animate-float-1 {
+            animation: slow-float 7s ease-in-out infinite;
+        }
+        .animate-float-2 {
+            animation: slow-float-reverse 9s ease-in-out infinite;
+        }
+    </style>
+    
+    <!-- SICUREZZA DI BASE: Framebuster sicuro che evita il blocco in ambienti Sandbox/Anteprima -->
+    <script>
+        try {
+            if (window.self !== window.top) {
+                console.log("Rilevato ambiente iframe protetto. Esecuzione framebuster sospesa in sicurezza.");
+            }
+        } catch (e) {
+            console.warn("Tentativo di framebusting intercettato e gestito in sicurezza per evitare SecurityError.");
+        }
+    </script>
+</head>
+<body class="min-h-full flex flex-col justify-between relative overflow-x-hidden">
+
+    <!-- Pattern di sfondo a griglia stile retro-brutalista -->
+    <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.06]" style="background-image: radial-gradient(#1e1b4b 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+
+    <!-- Onde Curve Colorate in Sfondo per Dinamismo -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Onda Blu Alto Sinistra -->
+        <svg class="absolute -top-24 -left-20 w-[400px] h-[400px] text-pure-blue/30 fill-current animate-float-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M42.2,-73C54.3,-66.2,63.5,-54.6,71.2,-41.7C78.9,-28.9,85.2,-14.4,85.9,0.4C86.6,15.2,81.7,30.3,74.1,43.3C66.6,56.2,56.3,66.9,43.7,73.8C31.1,80.7,15.5,83.9,0.2,83.5C-15.1,83.2,-30.2,79.4,-43.3,72.4C-56.3,65.4,-67.2,55.3,-74.6,42.7C-81.9,30.1,-85.7,15.1,-86.3,-0.4C-87,-15.9,-84.6,-31.8,-77.3,-44.6C-70.1,-57.4,-58.1,-67.1,-44.7,-73.2C-31.3,-79.3,-15.7,-81.8,-0.2,-81.4C15.2,-81,30.4,-79.7,42.2,-73Z" transform="translate(100 100)" />
+        </svg>
+
+        <!-- Onda Arancione Centro Destra -->
+        <svg class="absolute top-[30%] -right-24 w-[500px] h-[500px] text-pure-orange/20 fill-current animate-float-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M47.7,-64.1C60.9,-54.9,70.2,-40.4,74.9,-24.8C79.7,-9.1,80,7.6,75.4,22.9C70.9,38.1,61.6,51.8,48.7,61.7C35.9,71.6,18,77.7,-0.4,78.2C-18.7,78.7,-37.4,73.6,-51.1,63.4C-64.8,53.2,-73.5,37.9,-77.6,21.3C-81.7,4.8,-81.2,-13,-74.7,-28.1C-68.2,-43.2,-55.8,-55.6,-41.8,-64.4C-27.7,-73.2,-13.9,-78.3,1,-79.7C15.9,-81.1,31.8,-78.7,47.7,-64.1Z" transform="translate(100 100)" />
+        </svg>
+
+        <!-- Onda Viola Basso Sinistra -->
+        <svg class="absolute bottom-[-10%] -left-36 w-[600px] h-[600px] text-pure-purple/20 fill-current animate-float-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M38.5,-52.3C50.9,-43.2,62.7,-32.8,68.7,-19.2C74.7,-5.7,74.9,11.1,68.8,24.9C62.6,38.7,50,49.6,36.2,57C22.4,64.4,7.4,68.2,-7.4,66.7C-22.3,65.2,-37.1,58.3,-49.2,48.3C-61.4,38.3,-71,25.2,-73.9,10.6C-76.7,-3.9,-72.9,-19.8,-64.3,-32.2C-55.7,-44.6,-42.3,-53.4,-29,-61.2C-15.7,-68.9,-2.4,-75.6,10,-74.1C22.5,-72.6,35.5,-63.4,38.5,-52.3Z" transform="translate(100 100)" />
+        </svg>
+    </div>
+
+    <!-- Stickers grafici di sfondo -->
+    
+    <!-- Stella Gigante Arancione (Alto Sinistra) -->
+    <div class="absolute top-[12%] -left-8 w-24 sm:w-36 sticker-wobble pointer-events-none z-0 opacity-40 sm:opacity-80">
+        <svg viewBox="0 0 100 100" class="fill-pure-orange stroke-pure-dark stroke-[4]">
+            <polygon points="50,5 63,35 95,35 70,55 80,90 50,70 20,90 30,55 5,35 37,35" />
+        </svg>
+    </div>
+    
+    <!-- L'occhio mistico strambo (Alto Destra) -->
+    <div class="absolute top-[25%] right-[8%] w-20 sm:w-28 animate-float-1 pointer-events-none z-0 opacity-40 sm:opacity-80" style="animation-delay: 1.5s;">
+        <svg viewBox="0 0 100 80" class="fill-pure-blue stroke-pure-dark stroke-[4]">
+            <path d="M 10,40 Q 50,5 90,40 Q 50,75 10,40 Z" fill="#93c5fd" />
+            <circle cx="53" cy="42" r="18" fill="#d8b4fe" stroke="#1e1b4b" stroke-width="4" />
+            <circle cx="55" cy="44" r="9" fill="#1e1b4b" />
+            <line x1="50" y1="5" x2="50" y2="15" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round" />
+            <line x1="20" y1="18" x2="27" y2="25" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round" />
+            <line x1="80" y1="18" x2="73" y2="25" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <!-- STICKER: Saturno Pop Cosmico (Centro/Basso Sinistra) -->
+    <div class="absolute top-[50%] -left-6 w-24 sm:w-36 animate-float-2 pointer-events-none z-0 opacity-30 sm:opacity-75" style="animation-delay: 0.5s;">
+        <svg viewBox="0 0 100 100" class="fill-none stroke-pure-dark stroke-[4.5]">
+            <!-- Sfera Planetaria -->
+            <circle cx="50" cy="50" r="24" fill="#93c5fd" />
+            <!-- Anello Retro -->
+            <path d="M 15,50 C 15,40 85,30 85,50" stroke="#fdba74" stroke-width="8" stroke-linecap="round" />
+            <!-- Anello Fronte per profondità -->
+            <path d="M 15,50 C 15,60 85,70 85,50" stroke="#fdba74" stroke-width="8" stroke-linecap="round" />
+            <!-- Dettaglio anello interno scuro -->
+            <path d="M 22,50 C 22,56 78,63 78,50" stroke="#1e1b4b" stroke-width="2.5" fill="none" stroke-dasharray="4 4" />
+            <!-- Stellina decorativa sul pianeta -->
+            <polygon points="50,34 52,40 58,40 53,44 55,50 50,46 45,50 47,44 42,40 48,40" fill="#d8b4fe" stroke="#1e1b4b" stroke-width="2" />
+        </svg>
+    </div>
+
+    <!-- NUOVO STICKER OTTIMIZZATO: Cupido Volante Místico Proporzionato con Arco e Ali -->
+    <div class="absolute bottom-[8%] left-[2%] w-28 sm:w-44 sticker-wobble pointer-events-none z-0 opacity-35 sm:opacity-90" style="animation-delay: 2s;">
+        <svg viewBox="0 0 120 120" class="w-full h-full">
+            <!-- Ala Posteriore (per profondità 3D retro) -->
+            <path d="M 35,42 C 20,25 15,45 28,52 C 15,60 20,75 35,68" fill="#d8b4fe" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Gamba Sinistra / Piedino -->
+            <path d="M 35,74 C 24,76 22,88 34,84 C 36,80 38,76 35,74 Z" fill="#fdba74" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Torso Slanciato -->
+            <path d="M 44,48 C 32,52 35,74 48,74 C 58,74 62,62 58,48 Z" fill="#fdba74" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Toga / Drappeggio Greco Bianco -->
+            <path d="M 36,62 C 34,74 48,78 54,68 C 56,60 44,58 36,62 Z" fill="#ffffff" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Ala Anteriore Piumata Evidente -->
+            <path d="M 40,48 C 22,25 10,48 26,58 C 10,68 18,85 36,74 C 25,90 44,92 48,72" fill="#ffffff" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Testa proporzionata -->
+            <circle cx="52" cy="36" r="13" fill="#fdba74" stroke="#1e1b4b" stroke-width="4.5" />
+            
+            <!-- Capelli Ricci Pop ad alto contrasto -->
+            <path d="M 39,32 C 35,22 45,16 52,24 C 58,16 68,22 64,32 C 60,36 50,34 39,32 Z" fill="#fee2e2" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+            
+            <!-- Dettagli del viso (Occhio felice e guancia arrossata) -->
+            <path d="M 54,34 Q 57,31 60,34" fill="none" stroke="#1e1b4b" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="58" cy="40" r="2.5" fill="#f87171" opacity="0.8" />
+            
+            <!-- Braccio 1 che sorregge l'arco -->
+            <path d="M 56,46 C 65,46 72,50 76,50" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" />
+            
+            <!-- Braccio 2 che tira indietro la corda -->
+            <path d="M 48,50 C 44,54 50,60 55,55" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" />
+
+            <!-- Corda tesa tirata all'indietro fino alla mano -->
+            <path d="M 78,25 L 55,55 L 78,85" fill="none" stroke="#1e1b4b" stroke-width="2.5" />
+            
+            <!-- Arco in Legno Curvo Brutalista -->
+            <path d="M 78,25 Q 102,55 78,85" fill="none" stroke="#1e1b4b" stroke-width="5.5" stroke-linecap="round" />
+            
+            <!-- Asta della Freccia -->
+            <line x1="50" y1="55" x2="95" y2="55" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" />
+            
+            <!-- Piume della Freccia -->
+            <path d="M 50,55 L 42,48 L 46,55 L 42,62 Z" fill="#93c5fd" stroke="#1e1b4b" stroke-width="3.5" stroke-linejoin="round" />
+            
+            <!-- Punta a Cuore Evidente rivolta in avanti -->
+            <path d="M 105,55 Q 98,42 90,48 Q 96,55 90,62 Q 98,68 105,55 Z" fill="#fb923c" stroke="#1e1b4b" stroke-width="3.5" stroke-linejoin="round" />
+        </svg>
+    </div>
+
+    <!-- Il Cuore "Esploso" strambo (Basso Destra) -->
+    <div class="absolute bottom-[25%] -right-10 w-28 sm:w-40 sticker-wobble pointer-events-none z-0 opacity-40 sm:opacity-80" style="animation-delay: 1s;">
+        <svg viewBox="0 0 100 100" class="fill-pure-purple stroke-pure-dark stroke-[4]">
+            <path d="M 50,30 C 50,30 35,10 15,25 C -5,40 15,75 50,90 C 85,75 105,40 85,25 C 65,10 50,30 50,30 Z" fill="#d8b4fe" />
+        </svg>
+    </div>
+
+    <!-- Scintille e stelline strambe sparse in giro (Moltiplicate in basso a sinistra) -->
+    <div class="absolute bottom-[22%] left-[12%] w-6 h-6 text-pure-purple animate-pulse"><svg viewBox="0 0 24 24" class="fill-current"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+    <div class="absolute bottom-[6%] left-[18%] w-8 h-8 text-pure-orange animate-bounce" style="animation-duration: 3s;"><svg viewBox="0 0 24 24" class="fill-current"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+    <div class="absolute top-[48%] left-[25%] w-6 h-6 text-pure-purple animate-pulse"><svg viewBox="0 0 24 24" class="fill-current"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+    <div class="absolute top-[75%] right-[25%] w-8 h-8 text-pure-orange animate-bounce" style="animation-duration: 3s;"><svg viewBox="0 0 24 24" class="fill-current"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+    <div class="absolute top-[15%] left-[45%] w-5 h-5 text-pure-blue animate-pulse" style="animation-delay: 0.5s;"><svg viewBox="0 0 24 24" class="fill-current"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+    <!-- Header -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <!-- Tasto in alto a sinistra con stile Matthew ed effetto corsivo -->
+        <button onclick="goToHome()" class="flex flex-col items-start bg-pure-dark text-white px-5 py-2.5 border-3 border-pure-dark brutal-shadow-btn rounded-xl focus:outline-none hover:bg-pure-dark/95 cursor-pointer relative overflow-visible">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl sm:text-2xl font-black uppercase tracking-tight">
+                    ASTROLOGIA EMOTIVA
+                </span>
+                <span class="w-3 h-3 rounded-full bg-pure-orange border-2 border-pure-dark animate-pulse"></span>
+            </div>
+            <!-- Scritta d'autore in corsivo stile signature Matthew (preserva la M maiuscola) -->
+            <span class="font-['La_Belle_Aurore'] text-sm sm:text-base text-pure-orange tracking-wide self-end -mt-1 -mb-1 mr-4 transform -rotate-[3deg] select-none font-bold">
+                by Matthew
+            </span>
+        </button>
+        <div>
+            <a href="https://astrologia-emotiva.odoo.com" target="_blank" rel="noopener noreferrer" class="bg-pure-blue text-pure-dark border-3 border-pure-dark px-4 py-2 text-xs font-black uppercase tracking-wider rounded-xl brutal-shadow-btn hover:bg-pure-purple transition duration-150">
+                SITO UFFICIALE ↗
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Funnel Container -->
+    <main class="w-full max-w-4xl mx-auto px-6 py-8 flex-grow flex items-center justify-center relative z-10">
+        
+        <!-- STEP 0: HERO / INTRO -->
+        <div id="step-intro" class="w-full text-center space-y-8 animate-fade-in">
+            <div class="inline-block px-4 py-2 border-3 border-pure-dark bg-pure-purple text-pure-dark font-black uppercase text-xs tracking-wider rounded-lg rotate-1">
+                ✦ L'OROSCOPO CLASSICO MENTE. LE TUE EMOZIONI NO.
+            </div>
+            
+            <h1 class="text-5xl sm:text-8xl font-black uppercase tracking-tight leading-[0.9] text-pure-dark">
+                COME <span class="bg-pure-orange px-2 border-3 border-pure-dark inline-block -rotate-1 brutal-shadow-orange">AMI</span> <br class="sm:hidden"> E <br class="hidden sm:inline">
+                <span class="bg-pure-blue px-2 border-3 border-pure-dark inline-block rotate-1 brutal-shadow-blue">SENTI</span> <br>
+                DAVVERO?
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-pure-dark max-w-xl mx-auto font-bold leading-snug">
+                Un'analisi cruda e senza filtri del tuo profilo astrale. Niente oroscopi noiosi o previsioni banali. Solo pura, freschissima verità sul tuo cuore.
+            </p>
+            
+            <!-- Area del Bottone + Scritta d'autore integrata nello sfondo -->
+            <div class="pt-12 max-w-xl mx-auto">
+                <div class="flex flex-col items-center justify-center gap-6">
+                    
+                    <!-- Contenitore Bottone (Riferimento relativo per posizionare la scritta in corsivo) -->
+                    <div class="relative w-full max-w-md text-center">
+                        
+                        <!-- Bottone di Avvio Funnel (Senza fulmine, con due frecce brutaliste rivolte verso l'interno) -->
+                        <button onclick="startFunnel()" class="w-full px-10 py-6 bg-pure-orange hover:bg-pure-purple text-pure-dark border-4 border-pure-dark font-black uppercase text-xl sm:text-2xl tracking-wider rounded-2xl brutal-shadow-purple brutal-shadow-btn cursor-pointer flex items-center justify-center gap-3">
+                            <span class="text-2xl sm:text-3xl font-extrabold">→</span>
+                            <span class="inline-block">INIZIA IL TEST</span>
+                            <span class="text-2xl sm:text-3xl font-extrabold">←</span>
+                        </button>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-4">Risultati personalizzati istantanei</p>
+
+                        <!-- Scritta d'autore "Non essere timida..." posizionata in basso, perfettamente integrata -->
+                        <div class="mt-10 font-['La_Belle_Aurore'] text-pure-dark text-3xl sm:text-4xl font-black select-none pointer-events-none leading-none -rotate-2 transform transition duration-300">
+                            Non essere timida,<br class="sm:hidden"> buttati che è morbido<br>ci vuole solo 1 minuto 🧡
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 1: SEGNO ZODIACALE -->
+        <div id="step-zodiac" class="hidden w-full space-y-8">
+            <div class="text-center space-y-3">
+                <div class="inline-block px-3 py-1 bg-pure-orange text-pure-dark border-2 border-pure-dark text-xs font-black uppercase tracking-widest rounded-md">FASE 1 DI 3</div>
+                <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">IL TUO SEGNO SOLARE?</h2>
+                <p class="text-slate-700 font-bold">Iniziamo a mappare l'origine della tua energia emotiva.</p>
+            </div>
+
+            <!-- Grid 2 colonne su mobile -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <!-- Ariete -->
+                <button onclick="selectZodiac('Ariete')" class="group p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 40,65 Q 20,40 15,25 Q 25,10 40,30 Q 55,10 65,25 Q 60,40 40,65 Z" fill="#d8b4fe" transform="translate(3, 3)"/>
+                        <path d="M 40,65 Q 20,40 15,25 Q 25,10 40,30 Q 55,10 65,25 Q 60,40 40,65 Z" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="40" cy="42" r="4" fill="#1e1b4b" />
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Ariete</span>
+                </button>
+                
+                <!-- Toro -->
+                <button onclick="selectZodiac('Toro')" class="group p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 20,20 Q 20,45 40,45 Q 60,45 60,20" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="25" y="42" width="30" height="20" rx="4" fill="#fdba74" transform="translate(3, 3)" />
+                        <rect x="25" y="42" width="30" height="20" rx="4" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round" />
+                        <circle cx="33" cy="52" r="3.5" fill="#1e1b4b"/>
+                        <circle cx="47" cy="52" r="3.5" fill="#1e1b4b"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Toro</span>
+                </button>
+                
+                <!-- Gemelli -->
+                <button onclick="selectZodiac('Gemelli')" class="group p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <rect x="15" y="25" width="22" height="35" rx="11" fill="#fdba74" transform="translate(3, -2)"/>
+                        <rect x="43" y="25" width="22" height="35" rx="11" fill="#d8b4fe" transform="translate(-2, 3)"/>
+                        <rect x="15" y="25" width="22" height="35" rx="11" fill="none" stroke="#1e1b4b" stroke-width="4.5" />
+                        <rect x="43" y="25" width="22" height="35" rx="11" fill="none" stroke="#1e1b4b" stroke-width="4.5" />
+                        <line x1="37" y1="42" x2="43" y2="42" stroke="#1e1b4b" stroke-width="4.5"/>
+                        <circle cx="26" cy="38" r="2.5" fill="#1e1b4b"/>
+                        <circle cx="54" cy="38" r="2.5" fill="#1e1b4b"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Gemelli</span>
+                </button>
+                
+                <!-- Cancro -->
+                <button onclick="selectZodiac('Cancro')" class="group p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <circle cx="40" cy="45" r="18" fill="#93c5fd" transform="translate(3, 3)"/>
+                        <circle cx="40" cy="45" r="18" fill="none" stroke="#1e1b4b" stroke-width="4.5" />
+                        <path d="M 23,30 C 13,15 38,10 33,28" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <path d="M 57,30 C 67,15 42,10 47,28" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <circle cx="34" cy="43" r="2.5" fill="#1e1b4b"/>
+                        <circle cx="46" cy="43" r="2.5" fill="#1e1b4b"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Cancro</span>
+                </button>
+                
+                <!-- Leone -->
+                <button onclick="selectZodiac('Leone')" class="group p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 40,12 L 50,22 L 67,17 L 62,32 L 75,42 L 60,47 L 58,64 L 40,54 L 22,64 L 20,47 L 5,42 L 18,32 L 13,17 L 30,22 Z" fill="#fdba74" transform="translate(3, 3)"/>
+                        <path d="M 40,12 L 50,22 L 67,17 L 62,32 L 75,42 L 60,47 L 58,64 L 40,54 L 22,64 L 20,47 L 5,42 L 18,32 L 13,17 L 30,22 Z" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linejoin="round"/>
+                        <circle cx="40" cy="38" r="9" fill="none" stroke="#1e1b4b" stroke-width="4.5" />
+                        <circle cx="37" cy="37" r="1.5" fill="#1e1b4b"/>
+                        <circle cx="43" cy="37" r="1.5" fill="#1e1b4b"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Leone</span>
+                </button>
+                
+                <!-- Vergine -->
+                <button onclick="selectZodiac('Vergine')" class="group p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 23,25 Q 30,15 33,28 Q 36,15 43,28 Q 46,15 53,28 Q 56,45 43,55 Q 36,65 23,50" fill="#d8b4fe" transform="translate(3, -2)"/>
+                        <path d="M 23,25 Q 30,15 33,28 Q 36,15 43,28 Q 46,15 53,28 Q 56,45 43,55 Q 36,65 23,50" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="51" y1="35" x2="61" y2="45" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" />
+                        <line x1="61" y1="37" x2="53" y2="47" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Vergine</span>
+                </button>
+                
+                <!-- Bilancia -->
+                <button onclick="selectZodiac('Bilancia')" class="group p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <rect x="25" y="47" width="30" height="8" rx="3" fill="#93c5fd" transform="translate(1, 3)"/>
+                        <line x1="15" y1="35" x2="65" y2="25" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <line x1="40" y1="15" x2="40" y2="55" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <line x1="20" y1="34" x2="15" y2="48" stroke="#1e1b4b" stroke-width="3" />
+                        <line x1="20" y1="34" x2="25" y2="48" stroke="#1e1b4b" stroke-width="3" />
+                        <line x1="60" y1="26" x2="55" y2="40" stroke="#1e1b4b" stroke-width="3" />
+                        <line x1="60" y1="26" x2="65" y2="40" stroke="#1e1b4b" stroke-width="3" />
+                        <path d="M 10,48 L 30,48" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <path d="M 50,40 L 70,40" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Bilancia</span>
+                </button>
+                
+                <!-- Scorpione -->
+                <button onclick="selectZodiac('Scorpione')" class="group p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 22,25 Q 32,15 42,35 T 58,35 Q 63,35 58,50 Q 53,60 38,60" fill="#fdba74" transform="translate(3, 2)"/>
+                        <path d="M 22,25 Q 32,15 42,35 T 58,35 Q 63,35 58,50 Q 53,60 38,60" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round"/>
+                        <polygon points="38,52 33,63 46,60" fill="#1e1b4b" stroke="#1e1b4b" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M 15,40 L 18,45 L 23,45 L 19,49 L 21,54 L 15,51 L 9,54 L 11,49 L 7,45 L 12,45 Z" fill="#93c5fd" stroke="#1e1b4b" stroke-width="2" />
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Scorpione</span>
+                </button>
+                
+                <!-- Sagittario -->
+                <button onclick="selectZodiac('Sagittario')" class="group p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <circle cx="40" cy="40" r="18" fill="#d8b4fe" transform="translate(-2, 3)"/>
+                        <circle cx="40" cy="40" r="18" fill="none" stroke="#1e1b4b" stroke-width="4.5"/>
+                        <line x1="25" y1="55" x2="55" y2="25" stroke="#1e1b4b" stroke-width="5" stroke-linecap="round"/>
+                        <line x1="45" y1="25" x2="55" y2="25" stroke="#1e1b4b" stroke-width="5" stroke-linecap="round"/>
+                        <line x1="55" y1="35" x2="55" y2="25" stroke="#1e1b4b" stroke-width="5" stroke-linecap="round"/>
+                        <line x1="25" y1="47" x2="33" y2="55" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Sagittario</span>
+                </button>
+                
+                <!-- Capricorno -->
+                <button onclick="selectZodiac('Capricorno')" class="group p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 20,25 Q 35,15 45,35 Q 55,55 60,35 Q 65,20 50,55 Z" fill="#93c5fd" transform="translate(3, -1)"/>
+                        <path d="M 20,25 Q 35,15 45,35 Q 55,55 60,35 Q 65,20 50,55 Z" fill="none" stroke="#1e1b4b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="50" cy="55" r="5" fill="none" stroke="#1e1b4b" stroke-width="4.5" />
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Capri</span>
+                </button>
+                
+                <!-- Acquario -->
+                <button onclick="selectZodiac('Acquario')" class="group p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 15,35 L 27,25 L 39,35 L 51,25 L 63,35 M 15,55 L 27,45 L 39,55 L 51,45 L 63,55" fill="none" stroke="#fdba74" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" transform="translate(2, 2)" />
+                        <path d="M 15,35 L 27,25 L 39,35 L 51,25 L 63,35" fill="none" stroke="#1e1b4b" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M 15,55 L 27,45 L 39,55 L 51,45 L 63,55" fill="none" stroke="#1e1b4b" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="27" cy="15" r="3" fill="#1e1b4b"/>
+                        <circle cx="51" cy="15" r="3" fill="#1e1b4b"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Acquario</span>
+                </button>
+                
+                <!-- Pesci -->
+                <button onclick="selectZodiac('Pesci')" class="group p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl brutal-shadow-btn flex flex-col items-center justify-center gap-1 cursor-pointer">
+                    <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-2 group-hover:scale-110 transition duration-150">
+                        <path d="M 15,30 C 30,20 45,40 55,30 L 63,40 L 53,45 Z" fill="#d8b4fe" transform="translate(3, -2)"/>
+                        <path d="M 15,30 C 30,20 45,40 55,30 L 63,40 L 53,45 Z" fill="none" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 65,55 C 50,65 35,45 25,55 L 17,45 L 27,40 Z" fill="#fdba74" transform="translate(-2, 2)"/>
+                        <path d="M 65,55 C 50,65 35,45 25,55 L 17,45 L 27,40 Z" fill="none" stroke="#1e1b4b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="30" r="2.5" fill="#1e1b4b"/>
+                        <circle cx="55" cy="52" r="2.5" fill="#1e1b4b"/>
+                        <path d="M 35,33 Q 40,43 45,47" fill="none" stroke="#1e1b4b" stroke-width="3" stroke-dasharray="2 3"/>
+                    </svg>
+                    <span class="text-sm font-black uppercase tracking-wider text-pure-dark">Pesci</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 2: BLOCCO EMOTIVO -->
+        <div id="step-block" class="hidden w-full space-y-8">
+            <div class="text-center space-y-3">
+                <div class="inline-block px-3 py-1 bg-pure-purple text-pure-dark border-2 border-pure-dark text-xs font-black uppercase tracking-widest rounded-md">FASE 2 DI 3</div>
+                <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">COSA TI BLOCCA DI PIÙ?</h2>
+                <p class="text-slate-700 font-bold">Nessun giro di parole, andiamo dritto alla verità.</p>
+            </div>
+
+            <div class="max-w-xl mx-auto flex flex-col gap-4">
+                <button onclick="selectBlock('Fiducia')" class="w-full p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">PAURA DI APRIRMI</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Faccio fatica a fidarmi, lascio sempre una distanza di sicurezza.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">⚡</span>
+                </button>
+                <button onclick="selectBlock('Intensità')" class="w-full p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">PASSIONE BRUCIANTE</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Voglio l'intensità immediata, a costo di autodistruggermi.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">⚡</span>
+                </button>
+                <button onclick="selectBlock('Libertà')" class="w-full p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">TIMORE DELLA NOIA</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Ho il terrore di sentirmi incastrato o limitato nei miei spazi.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">⚡</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3: STILE DI COMUNICAZIONE -->
+        <div id="step-comms" class="hidden w-full space-y-8">
+            <div class="text-center space-y-3">
+                <div class="inline-block px-3 py-1 bg-pure-blue text-pure-dark border-2 border-pure-dark text-xs font-black uppercase tracking-widest rounded-md">FASE 3 DI 3</div>
+                <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">COME REAGISCI AL SCONTRO?</h2>
+                <p class="text-slate-700 font-bold">La tua reazione d'istinto definisce la tua vera natura astrologica.</p>
+            </div>
+
+            <div class="max-w-xl mx-auto flex flex-col gap-4">
+                <button onclick="selectComms('Esplosivo')" class="w-full p-5 bg-pure-orange border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">LO AFFRONTO DI PETTO</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Devo chiarire subito tutto, a costo di scontrarmi violentemente.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">🔥</span>
+                </button>
+                <button onclick="selectComms('Riflessivo')" class="w-full p-5 bg-pure-blue border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">MI CHIUDO NEL SILENZIO</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Ho bisogno di tempo ed erigo un muro temporaneo insormontabile.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">❄️</span>
+                </button>
+                <button onclick="selectComms('Armonico')" class="w-full p-5 bg-pure-purple border-3 border-pure-dark rounded-2xl text-left transition duration-200 brutal-shadow-btn flex items-center justify-between cursor-pointer">
+                    <div>
+                        <div class="font-black text-xl uppercase tracking-wide text-pure-dark">EVITO IL CONFLITTO</div>
+                        <div class="text-sm font-bold text-slate-700 mt-1">Cerco sempre di ammorbidire per non rovinare l'atmosfera o l'armonia.</div>
+                    </div>
+                    <span class="text-pure-dark font-black text-2xl">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 4: CARICAMENTO/ELABORAZIONE -->
+        <div id="step-loading" class="hidden w-full max-w-md text-center space-y-8 bg-white p-8 rounded-3xl border-4 border-pure-dark brutal-shadow-purple">
+            <div class="relative w-28 h-28 mx-auto flex items-center justify-center">
+                <!-- Rotate border -->
+                <div class="absolute inset-0 border-4 border-dashed border-pure-purple rounded-full animate-spin"></div>
+                <!-- Inner pulse -->
+                <div class="absolute inset-3 bg-pure-orange rounded-full border-3 border-pure-dark animate-pulse flex items-center justify-center">
+                    <span class="text-3xl">🌌</span>
+                </div>
+            </div>
+            
+            <div class="space-y-3">
+                <h3 class="text-2xl font-black uppercase text-pure-dark tracking-wide">ELABORAZIONE CORSO</h3>
+                <p id="loading-text" class="text-slate-600 font-bold text-xs tracking-widest uppercase">Mappo la tua luna di nascita...</p>
+            </div>
+
+            <!-- Custom brutalist loader line -->
+            <div class="w-full bg-slate-100 h-6 border-3 border-pure-dark rounded-full overflow-hidden p-1">
+                <div id="loading-bar" class="bg-pure-blue h-full w-0 rounded-full transition-all duration-300 ease-out border-r-2 border-pure-dark"></div>
+            </div>
+        </div>
+
+        <!-- STEP 5: RISULTATO PARZIALE & CALL TO ACTION -->
+        <div id="step-result" class="hidden w-full text-center space-y-8 animate-fade-in max-w-xl mx-auto">
+            <div class="inline-block px-4 py-2 border-3 border-pure-dark bg-pure-orange text-pure-dark font-black uppercase text-xs tracking-wider rounded-lg -rotate-1">
+                ✦ DIAGNOSI EMOTIVA OTTENUTA ✦
+            </div>
+            
+            <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">
+                IL TUO PROFILO:<br>
+                <span id="result-profile-title" class="bg-pure-purple px-2 py-1.5 border-3 border-pure-dark inline-block rotate-1 brutal-shadow-purple">
+                    IL SOGNATORE INTENSO
+                </span>
+            </h2>
+
+            <div class="p-6 bg-white rounded-3xl border-4 border-pure-dark brutal-shadow-blue text-left space-y-4 relative">
+                <!-- Occhiolino decorativo pop dentro la card del risultato -->
+                <div class="absolute -top-6 -right-6 w-12 h-12 bg-pure-orange border-2 border-pure-dark rounded-full flex items-center justify-center font-bold text-lg rotate-12 brutal-shadow-btn">
+                    😉
+                </div>
+                <p class="text-pure-dark font-bold text-lg leading-relaxed">
+                    La combinazione del tuo segno <strong class="bg-pure-orange px-1.5 border-2 border-pure-dark rounded uppercase tracking-wider" id="summary-zodiac">Ariete</strong> con il blocco <span class="bg-pure-blue px-1.5 border-2 border-pure-dark rounded uppercase text-xs sm:text-sm font-black" id="summary-block">"Intensità"</span> e lo stile <span class="bg-pure-purple px-1.5 border-2 border-pure-dark rounded uppercase text-xs sm:text-sm font-black" id="summary-comms">"Esplosivo"</span> rivela un cuore dinamico, fiammeggiante e senza mezze misure.
+                </p>
+                <p id="result-description" class="text-slate-700 font-medium leading-relaxed">
+                    Ami in modo viscerale e pretendi assoluta trasparenza. Tuttavia, quando avverti routine o una distanza minima, generi piccoli conflitti solo per valutare la reale presenza del partner. Hai paura dell'abbandono ma detesti sentirti limitato.
+                </p>
+                <div class="pt-4 border-t-3 border-dashed border-slate-200">
+                    <p class="text-xs uppercase text-slate-500 font-black tracking-widest">✘ L'Archetipo d'Ombra Relazionale:</p>
+                    <p id="result-shadow" class="text-sm font-bold text-pure-dark mt-1">Spesso boicotti le relazioni calme e stabili solo perché le confondi erroneamente con la fine della passione.</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 pt-4">
+                <h3 class="text-xl font-black uppercase tracking-wider text-pure-dark">VEDI LA TUA MAPPA EMOTIVA COMPLETA</h3>
+                <p class="text-slate-600 font-bold text-sm">
+                    Abbiamo calcolato i tuoi vettori di attrazione, il grafico della gelosia astrale e i tuoi trigger emotivi inconsci sul nostro portale principale.
+                </p>
+                
+                <a id="cta-link" href="https://astrologia-emotiva.odoo.com" target="_blank" rel="noopener noreferrer" class="block w-full px-8 py-6 bg-pure-orange hover:bg-pure-purple text-pure-dark border-4 border-pure-dark font-black uppercase text-xl tracking-widest rounded-2xl brutal-shadow-purple brutal-shadow-btn text-center cursor-pointer">
+                    SBLOCCA IL PROFILO SU ODOO ↗
+                </a>
+                
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">
+                    Verrai reindirizzato in sicurezza a astrologia-emotiva.odoo.com
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-xs font-black uppercase tracking-wider text-pure-dark border-t-3 border-pure-dark bg-[#fee2e2]/40 relative z-10 gap-4">
+        <div>
+            © 2026 Astrologia Emotiva. Tutti i diritti riservati.
+        </div>
+        <div class="flex space-x-6">
+            <a href="https://astrologia-emotiva.odoo.com/privacy" target="_blank" rel="noopener noreferrer" class="hover:underline transition">Privacy</a>
+            <a href="https://astrologia-emotiva.odoo.com/privacy" target="_blank" rel="noopener noreferrer" class="hover:underline transition">Termini</a>
+            <a href="https://astrologia-emotiva.odoo.com/contactus" target="_blank" rel="noopener noreferrer" class="hover:underline transition">Contatti</a>
+        </div>
+    </footer>
+
+    <!-- Funnel Logic JS -->
+    <script>
+        // State management
+        const state = {
+            zodiac: '',
+            emotionalBlock: '',
+            communication: '',
+        };
+
+        // DOM Elements
+        const stepIntro = document.getElementById('step-intro');
+        const stepZodiac = document.getElementById('step-zodiac');
+        const stepBlock = document.getElementById('step-block');
+        const stepComms = document.getElementById('step-comms');
+        const stepLoading = document.getElementById('step-loading');
+        const stepResult = document.getElementById('step-result');
+
+        // Reset/Go to home function
+        function goToHome() {
+            const steps = [stepIntro, stepZodiac, stepBlock, stepComms, stepLoading, stepResult];
+            steps.forEach(step => step.classList.add('hidden'));
+            
+            // Clear current states
+            state.zodiac = '';
+            state.emotionalBlock = '';
+            state.communication = '';
+            
+            // Reset visual loader bar
+            document.getElementById('loading-bar').style.width = '0%';
+            
+            // Reveal Intro
+            stepIntro.classList.remove('hidden');
+            stepIntro.classList.add('animate-fade-in');
+        }
+
+        // Transitions
+        function showStep(hideEl, showEl) {
+            hideEl.classList.add('hidden');
+            showEl.classList.remove('hidden');
+            showEl.classList.add('animate-fade-in');
+        }
+
+        // Funnel navigation
+        function startFunnel() {
+            showStep(stepIntro, stepZodiac);
+        }
+
+        // Select Zodiac
+        function selectZodiac(zodiac) {
+            state.zodiac = zodiac;
+            showStep(stepZodiac, stepBlock);
+        }
+
+        // Select Block
+        function selectBlock(block) {
+            state.emotionalBlock = block;
+            showStep(stepBlock, stepComms);
+        }
+
+        // Select Comms
+        function selectComms(comms) {
+            state.communication = comms;
+            startCalculations();
+        }
+
+        function startCalculations() {
+            showStep(stepComms, stepLoading);
+            
+            const loadingTexts = [
+                "Mappo la tua luna di nascita...",
+                "Analizzo l'allineamento di Venere...",
+                "Calcolo l'intensità del tuo ego...",
+                "Disegno l'archetipo ombra..."
+            ];
+            
+            let progress = 0;
+            let textIndex = 0;
+            const loadingBar = document.getElementById('loading-bar');
+            const loadingLabel = document.getElementById('loading-text');
+
+            const interval = setInterval(() => {
+                progress += 5;
+                if (progress <= 100) {
+                    loadingBar.style.width = `${progress}%`;
+                }
+
+                if (progress % 25 === 0 && textIndex < loadingTexts.length - 1) {
+                    textIndex++;
+                    loadingLabel.textContent = loadingTexts[textIndex];
+                }
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    generateResult();
+                }
+            }, 80);
+        }
+
+        function generateResult() {
+            const profileTitle = document.getElementById('result-profile-title');
+            const summaryZodiac = document.getElementById('summary-zodiac');
+            const summaryBlock = document.getElementById('summary-block');
+            const summaryComms = document.getElementById('summary-comms');
+            const resultDescription = document.getElementById('result-description');
+            const resultShadow = document.getElementById('result-shadow');
+            
+            summaryZodiac.textContent = state.zodiac;
+            
+            // Real customization logic based on selections
+            let profileName = "IL SOGNATORE INTENSO";
+            let blockLabel = "Passione Bruciante";
+            let commsLabel = "Confronto Diretto";
+            let description = "";
+            let shadowText = "";
+
+            // 1. Mapping Blocks Labels
+            if (state.emotionalBlock === 'Fiducia') {
+                blockLabel = "Paura di aprirsi";
+            } else if (state.emotionalBlock === 'Intensità') {
+                blockLabel = "Passione Bruciante";
+            } else {
+                blockLabel = "Timore della noia";
+            }
+
+            // 2. Mapping Comms Labels
+            if (state.communication === 'Esplosivo') {
+                commsLabel = "Esplosivo";
+            } else if (state.communication === 'Riflessivo') {
+                commsLabel = "Silenzio Riflessivo";
+            } else {
+                commsLabel = "Evitamento Armonico";
+            }
+
+            summaryBlock.textContent = blockLabel;
+            summaryComms.textContent = commsLabel;
+
+            // 3. Dynamic profiling algorithm
+            if (state.emotionalBlock === 'Fiducia') {
+                profileName = "IL PROTETTORE CAUTO";
+                description = `La combinazione del tuo segno ${state.zodiac} con la tua tendenza a proteggere il cuore rivela che hai eretto mura fortificate attorno alle tue emozioni più pure. Preferisci analizzare e osservare prima di fare un passo, lasciando sempre una via di fuga a portata di mano. Se il partner si scontra con te, il tuo istinto di difesa si attiva istantaneamente.`;
+                shadowText = "Tendi a scambiare l'autentica vulnerabilità per debolezza, tenendo a distanza proprio le persone che vorresti più vicine.";
+                
+                if (state.communication === 'Riflessivo') {
+                    profileName = "L'EREMITA ANALITICO";
+                    description += " Inoltre, il tuo silenzio protettivo può essere interpretato come punitivo o indifferente, congelando la comunicazione sul nascere.";
+                }
+            } else if (state.emotionalBlock === 'Intensità') {
+                profileName = "IL VULCANO VISCERALE";
+                description = `Con il sole in ${state.zodiac} e la ricerca costante di emozioni travolgenti, vivi l'amore come un'opera d'arte drammatica. Detesti la tiepidezza e ricerchi una connessione assoluta. Tuttavia, quando avverti un calo di tensione relazionale o una calma apparente, tendi ad agitare le acque per testare la solidità del legame.`;
+                shadowText = "Finisci per sabotare la stabilità relazionale, confondendo la pace e la serenità con una totale mancanza di interesse.";
+                
+                if (state.communication === 'Esplosivo') {
+                    profileName = "IL GUERRIERO FIAMMEGGIANTE";
+                    description += " La tua modalità espressiva vulcanica esige chiarimenti immediati, rischiando spesso di bruciare ponti relazionali prima di aver compreso la reale situazione.";
+                }
+            } else { // Libertà
+                profileName = "IL CORSARO LIBERO";
+                description = `Essere un nativo del segno ${state.zodiac} con un forte bisogno di indipendenza significa che ami il brivido dell'esplorazione ma temi profondamente la gabbia dorata della routine. Per te la noia è il vero nemico. Desideri ardentemente un legame complice, ma se ti senti pressato o vincolato, la tua mente inizia automaticamente a pianificare una fuga tattica.`;
+                shadowText = "Spesso fuggici di fronte della minima responsabilità affettiva, scambiando l'impegno reciproco per una prigionia.";
+                
+                if (state.communication === 'Armonico') {
+                    profileName = "IL DIPLOMATICO SFUGGENTE";
+                    description += " Per evitare spiegazioni complesse o tensioni d'animo che limiterebbero la tua libertà di movimento, preferisci addolcire i toni ed evadere silenziosamente dalle discussioni cruciali.";
+                }
+            }
+
+            profileTitle.textContent = profileName;
+            resultDescription.textContent = description;
+            resultShadow.textContent = shadowText;
+
+            // Redirect parameters passing all custom metrics to Odoo
+            const baseUrl = "https://astrologia-emotiva.odoo.com";
+            const utmParams = `?utm_source=funnel&utm_medium=quiz&zodiac=${state.zodiac}&block=${state.emotionalBlock}&comms=${state.communication}&profile=${encodeURIComponent(profileName)}`;
+            document.getElementById('cta-link').href = baseUrl + utmParams;
+
+            showStep(stepLoading, stepResult);
+        }
+    </script>
+
+    <!-- Tailwind extra utility animation class helper -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</body>
+</html>
