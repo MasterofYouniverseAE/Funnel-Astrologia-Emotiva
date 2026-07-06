@@ -284,7 +284,7 @@
 
                         <!-- Scritta d'autore "Non essere timida..." -->
                         <div class="mt-8 sm:mt-10 font-cursive text-pure-dark text-2xl sm:text-4xl font-black select-none pointer-events-none leading-tight -rotate-2 transform transition duration-300">
-                            Non essere timida,<br class="sm:hidden"> buttati che è morbido<br>ci vuole solo 1 minuto 🧡
+                            Non essere timida,<br class="sm:hidden"> buttati che è morbido,<br>ci vuole solo 1 minuto 🧡
                         </div>
                     </div>
                 </div>
@@ -292,9 +292,16 @@
         </div>
 
         <!-- STEP 1: SEGNO ZODIACALE -->
-        <div id="step-zodiac" class="hidden w-full space-y-6 sm:space-y-8">
+        <div id="step-zodiac" class="hidden w-full space-y-6 sm:space-y-8 animate-fade-in">
+            <!-- Header di navigazione con pulsante Indietro neo-brutalista -->
+            <div class="flex items-center justify-between max-w-2xl mx-auto px-2">
+                <button onclick="goBackTo(stepZodiac, stepIntro)" class="flex items-center gap-1.5 bg-white text-pure-dark border-[3px] border-pure-dark px-3 sm:px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl brutal-shadow-btn cursor-pointer">
+                    ← Indietro
+                </button>
+                <div class="inline-block px-3 py-1.5 bg-pure-orange text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 1 DI 3</div>
+            </div>
+
             <div class="text-center space-y-2 sm:space-y-3">
-                <div class="inline-block px-3 py-1 bg-pure-orange text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 1 DI 3</div>
                 <h2 class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">IL TUO SEGNO SOLARE?</h2>
                 <p class="text-slate-700 font-bold text-sm sm:text-base">Iniziamo a mappare l'origine della tua energia emotiva.</p>
             </div>
@@ -457,9 +464,16 @@
         </div>
 
         <!-- STEP 2: BLOCCO EMOTIVO -->
-        <div id="step-block" class="hidden w-full space-y-6 sm:space-y-8">
+        <div id="step-block" class="hidden w-full space-y-6 sm:space-y-8 animate-fade-in">
+            <!-- Header di navigazione con pulsante Indietro neo-brutalista -->
+            <div class="flex items-center justify-between max-w-xl mx-auto px-2">
+                <button onclick="goBackTo(stepBlock, stepZodiac)" class="flex items-center gap-1.5 bg-white text-pure-dark border-[3px] border-pure-dark px-3 sm:px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl brutal-shadow-btn cursor-pointer">
+                    ← Indietro
+                </button>
+                <div class="inline-block px-3 py-1.5 bg-pure-purple text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 2 DI 3</div>
+            </div>
+
             <div class="text-center space-y-2 sm:space-y-3">
-                <div class="inline-block px-3 py-1 bg-pure-purple text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 2 DI 3</div>
                 <h2 class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none">COSA TI BLOCCA DI PIÙ?</h2>
                 <p class="text-slate-700 font-bold text-sm sm:text-base">Nessun giro di parole, andiamo dritto alla verità.</p>
             </div>
@@ -490,10 +504,17 @@
         </div>
 
         <!-- STEP 3: STILE DI COMUNICAZIONE -->
-        <div id="step-comms" class="hidden w-full space-y-6 sm:space-y-8">
+        <div id="step-comms" class="hidden w-full space-y-6 sm:space-y-8 animate-fade-in">
+            <!-- Header di navigazione con pulsante Indietro neo-brutalista -->
+            <div class="flex items-center justify-between max-w-xl mx-auto px-2">
+                <button onclick="goBackTo(stepComms, stepBlock)" class="flex items-center gap-1.5 bg-white text-pure-dark border-[3px] border-pure-dark px-3 sm:px-4 py-1.5 text-xs font-black uppercase tracking-wider rounded-xl brutal-shadow-btn cursor-pointer">
+                    ← Indietro
+                </button>
+                <div class="inline-block px-3 py-1.5 bg-pure-blue text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 3 DI 3</div>
+            </div>
+
             <div class="text-center space-y-2 sm:space-y-3">
-                <div class="inline-block px-3 py-1 bg-pure-blue text-pure-dark border-2 border-pure-dark text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-md">FASE 3 DI 3</div>
-                <h2 class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none font-bold">COME REAGISCI AL SCONTRO?</h2>
+                <h2 class="text-3xl sm:text-6xl font-black uppercase tracking-tight text-pure-dark leading-none font-bold">COME REAGISCI ALLO SCONTRO?</h2>
                 <p class="text-slate-700 font-bold text-sm sm:text-base">La tua reazione d'istinto definisce la tua vera natura astrologica.</p>
             </div>
 
@@ -534,7 +555,7 @@
             </div>
             
             <div class="space-y-2 sm:space-y-3">
-                <h3 class="text-xl sm:text-2xl font-black uppercase text-pure-dark tracking-wide">ELABORAZIONE CORSO</h3>
+                <h3 class="text-xl sm:text-2xl font-black uppercase text-pure-dark tracking-wide">ELABORAZIONE IN CORSO</h3>
                 <p id="loading-text" class="text-slate-600 font-bold text-[10px] sm:text-xs tracking-widest uppercase">Mappo la tua luna di nascita...</p>
             </div>
 
@@ -648,6 +669,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Reusable Back Button function
+        function goBackTo(hideEl, showEl) {
+            showStep(hideEl, showEl);
+        }
+
         // Funnel navigation
         function startFunnel() {
             showStep(stepIntro, stepZodiac);
@@ -754,7 +780,7 @@
                 }
             } else if (state.emotionalBlock === 'Intensità') {
                 profileName = "IL VULCANO VISCERALE";
-                description = "Con il sole in " + state.zodiac + " e la ricerca costante di emozioni travolgenti, vivi l'amore come un'opera d'arte drammatica. Detesti la tiepidezza e ricerchi una connessione assoluta. Tuttavia, quando avverti un calo di tensioni relazionali o una calma apparente, tendi ad agitare le acque per testare la solidità del legame.";
+                description = "Con il sole in " + state.zodiac + " e la ricerca costante di emozioni travolgenti, vivi l'amore come un'opera d'arte drammatica. Detesti la tiepidezza e ricerchi una connessione assoluta. Tuttavia, quando avverti un calo di tensione relazionale o una calma apparente, tendi ad agitare le acque per testare la solidità del legame.";
                 shadowText = "Finisci per sabotare la stabilità relazionale, confondendo la pace e la serenità con una totale mancanza di interesse.";
                 
                 if (state.communication === 'Esplosivo') {
